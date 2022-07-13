@@ -1,5 +1,7 @@
 import re
 import sys
+import os
+os.system("")
 
 def validator(password):
     """
@@ -30,4 +32,12 @@ def validator(password):
         print('\033[0;32m',"valid password",'\033[0m')
         return 0
 
-validator(sys.argv[1])
+
+
+if sys.argv[1] == "-f" :
+    if(len(sys.argv[2])>=1):
+        f = open(sys.argv[2], 'r')
+        copy_pass = str(f.readline())
+        validator(copy_pass)
+else:
+    validator(sys.argv[1])
